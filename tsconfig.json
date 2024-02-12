@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "rootDir": "./src",
+        "outDir": "./lib",
+        "jsx": "react",
+        "target": "ES5",
+        "esModuleInterop": true,
+        "lib": ["ES7", "ES2017", "ES6", "DOM"],
+        "declaration": true,
+        "module": "CommonJS",
+        "strict": true
+    },
+    "include": ["src"]
+}

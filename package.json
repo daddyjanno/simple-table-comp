@@ -1,0 +1,48 @@
+{
+    "dependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-router-dom": "^6.21.1"
+    },
+    "devDependencies": {
+        "@types/node": "20.8.2",
+        "@types/react": "^18.2.47",
+        "@types/react-dom": "^18.2.18",
+        "copyfiles": "^2.4.1",
+        "gts": "^5.2.0",
+        "rimraf": "^5.0.5",
+        "typescript": "~5.2.0"
+    },
+    "name": "@daddyjanno/simple-table-comp",
+    "description": "a flexible table component",
+    "version": "1.0.0",
+    "main": "./lib/index.js",
+    "types": "./lib/index.d.ts",
+    "style": "./lib/Style.index.css",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "lint": "gts lint",
+        "clean": "rimraf dist/",
+        "copy-files": "copyfiles -u 1 src/**/*.html src/**/*.css lib/",
+        "build": "npm run clean && tsc && npm run copy-files",
+        "compile": "tsc",
+        "fix": "gts fix",
+        "prepare": "npm run compile",
+        "pretest": "npm run compile",
+        "posttest": "npm run lint"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/daddyjanno/@daddyjanno/simple-table-comp.git"
+    },
+    "author": "Jean-Noel Drugmand",
+    "license": "ISC",
+    "private": false,
+    "bugs": {
+        "url": "https://github.com/daddyjanno/@daddyjanno/simple-table-comp/issues"
+    },
+    "homepage": "https://github.com/daddyjanno/@daddyjanno/simple-table-comp#readme",
+    "directories": {
+        "lib": "lib"
+    }
+}
