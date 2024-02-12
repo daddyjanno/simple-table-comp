@@ -15,7 +15,7 @@
     },
     "name": "@daddyjanno/simple-table-comp",
     "description": "a flexible table component",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "main": "./lib/index.js",
     "types": "./lib/index.d.ts",
     "style": "./lib/Style.index.css",

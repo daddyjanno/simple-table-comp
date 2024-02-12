@@ -7,17 +7,17 @@ The table can be sorted, filtered (using a search input), paginated and the numb
 ## Installation
 
 ```
-npm install @daddyjanno/@daddyjanno/simple-table-comp
+npm install @daddyjanno/simple-table-comp
 
 or
 
-yarn add @daddyjanno/@daddyjanno/simple-table-comp
+yarn add @daddyjanno/simple-table-comp
 ```
 
 ## Usage
 
 ```
-import { Table } from "@daddyjanno/@daddyjanno/simple-table-comp";
+import { Table } from "@daddyjanno/simple-table-comp";
 
 const App = () => {
     const data = [
