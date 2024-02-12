@@ -15,7 +15,7 @@
     },
     "name": "@daddyjanno/simple-table-comp",
     "description": "a flexible table component",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "main": "./lib/index.js",
     "types": "./lib/index.d.ts",
     "style": "./lib/Style.index.css",
@@ -33,15 +33,15 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/daddyjanno/@daddyjanno/simple-table-comp.git"
+        "url": "git+https://github.com/daddyjanno/simple-table-comp.git"
     },
     "author": "Jean-Noel Drugmand",
     "license": "ISC",
     "private": false,
     "bugs": {
-        "url": "https://github.com/daddyjanno/@daddyjanno/simple-table-comp/issues"
+        "url": "https://github.com/daddyjanno/simple-table-comp/issues"
     },
-    "homepage": "https://github.com/daddyjanno/@daddyjanno/simple-table-comp#readme",
+    "homepage": "https://github.com/daddyjanno/simple-table-comp#readme",
     "directories": {
         "lib": "lib"
     }
