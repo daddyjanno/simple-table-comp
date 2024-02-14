@@ -9,5 +9,5 @@ interface IProps {
 type EmployeeType = {
     [index: string]: string;
 };
-export default function Pagination({ filteredData, pageNeighbours, entries, currentPageCallBack, currentPage }: IProps): React.JSX.Element | null;
+export default function Pagination({ filteredData, pageNeighbours, entries, currentPageCallBack, currentPage, }: IProps): React.JSX.Element | null;
 export {};
