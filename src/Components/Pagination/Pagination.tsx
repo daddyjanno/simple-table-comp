@@ -1,56 +1,60 @@
-import React, { useEffect, useState } from 'react'
-import { getPagesArray } from '../../utils/getPagesArray'
+import React, {useEffect, useState} from 'react';
+import {getPagesArray} from '../../utils/getPagesArray';
 
 interface IProps {
-    filteredData: EmployeeType[]
-    pageNeighbours: number
-    entries: number
-    currentPageCallBack: (value: number) => void
-    currentPage: number
+    filteredData: EmployeeType[];
+    pageNeighbours: number;
+    entries: number;
+    currentPageCallBack: (value: number) => void;
+    currentPage: number;
 }
 
 type EmployeeType = {
-    [index: string]: string
-}
+    [index: string]: string;
+};
 
-const LEFT_PAGE = -10
-const RIGHT_PAGE = -5
+const LEFT_PAGE = -10;
+const RIGHT_PAGE = -5;
 
 export default function Pagination({
     filteredData,
     pageNeighbours,
     entries,
     currentPageCallBack,
-    currentPage
+    currentPage,
 }: IProps) {
-    const [lastPage, setLastPage] = useState(1)
-    const [tempCurr, setTempCurr] = useState(1)
+    const [lastPage, setLastPage] = useState(1);
+    const [tempCurr, setTempCurr] = useState(1);
 
     useEffect(() => {
-        setLastPage(entries ? Math.ceil(filteredData.length / entries) : 1)
-    }, [entries, filteredData.length])
+        setLastPage(entries ? Math.ceil(filteredData.length / entries) : 1);
+    }, [entries, filteredData.length]);
 
     const handleClick = (value: number) => {
-        currentPageCallBack(value)
-    }
+        currentPageCallBack(value);
+    };
 
     const handleGoTo = (
         e: React.FormEvent<HTMLButtonElement | HTMLFormElement>
     ): void => {
-        e.preventDefault()
+        e.preventDefault();
+        const goToForm: HTMLFormElement | null = document.querySelector(
+            '.goToPage_container'
+        );
         if (tempCurr <= lastPage) {
-            currentPageCallBack(tempCurr)
+            currentPageCallBack(tempCurr);
+            goToForm?.reset();
         }
-    }
+    };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        e.preventDefault()
-        setTempCurr(+e.target.value)
-    }
+        e.preventDefault();
+        setTempCurr(+e.target.value);
+    };
 
-    const pages = getPagesArray(lastPage, currentPage, pageNeighbours)
+    const pages = getPagesArray(lastPage, currentPage, pageNeighbours);
 
-    if (lastPage === 1) return null
+    if (lastPage === 1) return null;
 
     return (
         <div className="pagination_container">
@@ -110,5 +114,5 @@ export default function Pagination({
                 <button onClick={handleGoTo}>Go</button>
             </form>
         </div>
-    )
+    );
 }
