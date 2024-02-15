@@ -11,3 +11,7 @@
 ## 1.0.3 / 2024-02-12
 
 -   "Go to Page" form reset after submit
+
+## 1.0.4 / 2024-02-12
+
+-   adjust css
