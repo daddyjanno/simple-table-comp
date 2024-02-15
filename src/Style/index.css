@@ -79,7 +79,7 @@ th {
 .dataTable_infos {
     display: flex;
     width: 70%;
-    height: 14rem;
+    height: 10rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;

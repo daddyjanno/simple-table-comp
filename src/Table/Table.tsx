@@ -1,50 +1,44 @@
-import React, { useEffect, useState } from 'react'
-import { useSortableTable } from '../utils/useSortableTable'
-import TableHead from '../Components/TableHead/TableHead'
-import TableShowEntries from '../Components/TableShowEntries/TableShowEntries'
-import TableSearch from '../Components/TableSearch/TableSearch'
-import Pagination from '../Components/Pagination/Pagination'
-import TableRow from '../Components/TableRow/TableRow'
-import '../Style/index.css'
+import React, {useEffect, useState} from 'react';
+import {useSortableTable} from '../utils/useSortableTable';
+import TableHead from '../Components/TableHead/TableHead';
+import TableShowEntries from '../Components/TableShowEntries/TableShowEntries';
+import TableSearch from '../Components/TableSearch/TableSearch';
+import Pagination from '../Components/Pagination/Pagination';
+import TableRow from '../Components/TableRow/TableRow';
+import '../Style/index.css';
 
 interface TableIProps {
-    caption: string
-    data: EmployeeType[]
-    columns: Array<{ label: string; accessor: string; sortable: boolean }>
-    showEntries?: boolean
-    showSearch?: boolean
+    caption: string;
+    data: EmployeeType[];
+    columns: Array<{label: string; accessor: string; sortable: boolean}>;
+    showEntries?: boolean;
+    showSearch?: boolean;
 }
 type EmployeeType = {
-    [index: string]: string
-}
+    [index: string]: string;
+};
 
-function Table({
-    caption,
-    data,
-    columns,
-    showEntries,
-    showSearch
-}: TableIProps) {
-    const [tableData, handleSorting] = useSortableTable(data)
-    const [filteredData, setFilteredData] = useState(tableData || data)
-    const [entries, setEntries] = useState(10)
-    const [searchValue, setSearchValue] = useState('')
-    const [currentPage, setCurrentPage] = useState(1)
+function Table({caption, data, columns, showEntries, showSearch}: TableIProps) {
+    const [tableData, handleSorting] = useSortableTable(data);
+    const [filteredData, setFilteredData] = useState(tableData || data);
+    const [entries, setEntries] = useState(10);
+    const [searchValue, setSearchValue] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
 
     function entriesCallBack(value: number): void {
-        setEntries(value)
+        setEntries(value);
     }
 
     function searchValueCallBack(value: string): void {
         if (value.length >= 2) {
-            setSearchValue(value)
+            setSearchValue(value);
         } else {
-            setSearchValue('')
+            setSearchValue('');
         }
     }
 
     function currentPageCallBack(value: number): void {
-        setCurrentPage(value)
+        setCurrentPage(value);
     }
 
     useEffect(() => {
@@ -55,13 +49,13 @@ function Table({
                         item[key]
                             .toLowerCase()
                             .includes(searchValue.toLowerCase())
-                    )
+                    );
                 })
-            )
+            );
         } else if (tableData) {
-            setFilteredData(tableData)
+            setFilteredData(tableData);
         }
-    }, [showSearch, searchValue, setFilteredData, tableData])
+    }, [showSearch, searchValue, setFilteredData, tableData]);
 
     return (
         <div className="dataTable_container">
@@ -101,6 +95,7 @@ function Table({
                         />
 
                         <tbody>
+                            {!filteredData && <div>no data to display</div>}
                             {showEntries &&
                                 filteredData
                                     .slice(
@@ -119,7 +114,7 @@ function Table({
                                                     employee={employee}
                                                     columns={columns}
                                                 />
-                                            )
+                                            );
                                         }
                                     )}
                             {!showEntries &&
@@ -132,7 +127,7 @@ function Table({
                                                 employee={employee}
                                                 columns={columns}
                                             />
-                                        )
+                                        );
                                     }
                                 )}
                         </tbody>
@@ -148,9 +143,8 @@ function Table({
                     )}
                 </>
             )}
-            {!filteredData && <div>no data to display</div>}
         </div>
-    )
+    );
 }
 
-export default Table
+export default Table;
