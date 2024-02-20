@@ -59,6 +59,7 @@ function Table({caption, data, columns, showEntries, showSearch}: TableIProps) {
 
     return (
         <div className="dataTable_container">
+            {!filteredData && <div>no data to display</div>}
             {filteredData && (
                 <>
                     <div className="dataTable_infos">
