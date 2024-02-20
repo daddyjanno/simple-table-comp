@@ -15,3 +15,7 @@
 ## 1.0.4 / 2024-02-12
 
 -   adjust css
+
+## 1.0.5 / 2024-02-20
+
+-   add a "no data to display" message if no data
